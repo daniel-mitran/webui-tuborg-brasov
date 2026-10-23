@@ -129,6 +129,15 @@
   .chip{font:inherit; font-size:14px; font-weight:600; padding:9px 14px; border-radius:999px; cursor:pointer; border:1px solid var(--line); background:var(--card); color:var(--ink-soft);}
   .chip.on{border-color:var(--khaki); background:var(--khaki); color:#1c1c1c;}
   .chip b{font-variant-numeric:tabular-nums;}
+  .tbl{width:100%; margin-top:10px; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:8px; overflow:hidden; font-size:18px;}
+  .tbl th{text-align:left; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--khaki); padding:10px 16px; border-bottom:1px solid var(--khaki);}
+  .tbl td{padding:9px 16px; border-top:1px solid var(--line); font-weight:500; line-height:1.3; overflow-wrap:anywhere;}
+  .tbl tbody tr:first-child td{border-top:none;}
+  .tbl td small{display:block; font-size:13px; font-weight:400; color:var(--ink-soft);}
+  .tbl .n{width:72px; text-align:right; font-weight:700; font-variant-numeric:tabular-nums;}
+  .tbl tr.in td{color:var(--amber);}
+  .tbl tr.in td:first-child{box-shadow:inset 4px 0 0 var(--amber);}
+  .tbl tfoot td{border-top:1px solid var(--khaki); font-size:14px; font-weight:600; color:var(--khaki);}
   .dot{width:10px; height:10px; border-radius:50%; background:#1c1c1c;}
   .dot.bad{background:var(--red);}
 
@@ -350,7 +359,16 @@
       h = ['<div class="list-head"><div class="count">Lista completă</div><div class="filters">' +
         chip("all", "Toți", guests.length) + chip("in", "Au venit", nIn) + chip("out", "N-au venit", guests.length - nIn) + '</div></div>'];
       if (!res.length){ h.push('<div class="empty">' + (filt === "in" ? "Nu a venit nimeni încă." : "Au venit toți invitații.") + '</div>'); out.innerHTML = h.join(""); return; }
-      h.push('<div class="results">');
+      // tabel compact: nume in stanga, numarul de persoane in dreapta
+      var tot = 0;
+      h.push('<table class="tbl"><thead><tr><th>Nume</th><th class="n">Pers.</th></tr></thead><tbody>');
+      res.forEach(function(g){
+        tot += g.count;
+        h.push('<tr' + (checkins[g.id] ? ' class="in"' : '') + '><td>' + esc(g.name) + (g.detail ? '<small>' + esc(g.detail) + '</small>' : '') + '</td><td class="n">' + g.count + '</td></tr>');
+      });
+      h.push('</tbody><tfoot><tr><td>' + res.length + (res.length === 1 ? ' invitație' : ' invitații') + '</td><td class="n">' + tot + '</td></tr></tfoot></table>');
+      out.innerHTML = h.join("");
+      return;
     } else {
       res = guests.filter(function(g){
         for (var i = 0; i < tokens.length; i++) if (g.key.indexOf(tokens[i]) < 0) return false;
