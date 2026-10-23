@@ -4,6 +4,7 @@ Pagină pentru tablete: scrii cel puțin 3 litere din numele invitatului și bif
 
 - Fiecare invitație arată câte persoane are (coloana B din Excel). La bifare se consideră că au venit toți; cu **− / +** se corectează câți au intrat efectiv.
 - Jos se vede mereu câte persoane au venit din total. **Statistici** arată persoanele și invitațiile bifate, plus butonul de ștergere a tuturor bifărilor (confirmare cu `RESET`).
+- **Lista completă** (jos, lângă Statistici) arată toți invitații în ordine alfabetică, cu filtrele Toți / Au venit / N-au venit; se poate bifa direct din listă.
 - Debifarea cere confirmare. Dacă două tablete bifează aceeași invitație simultan, a doua vede „era deja bifat(ă) de pe altă tabletă”.
 - Zoom-ul e dezactivat pe tablete.
 

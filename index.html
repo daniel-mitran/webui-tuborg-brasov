@@ -53,7 +53,7 @@
   .page{
     min-height:calc(100% - 120px); display:flex; flex-direction:column; gap:20px;
     max-width:860px; margin:0 auto;
-    padding-block:24px calc(18px + env(safe-area-inset-bottom,0px));
+    padding-block:24px 0;
     padding-left:max(20px, env(safe-area-inset-left,0px));
     padding-right:max(20px, env(safe-area-inset-right,0px));
   }
@@ -116,10 +116,19 @@
   .btn:focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
   .empty{padding:28px 6px; color:var(--ink-soft); font-size:17px;}
 
-  footer{margin-top:auto; padding-top:22px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  footer{margin-top:auto; position:sticky; bottom:0; z-index:5; background:var(--bg); padding-top:16px; padding-bottom:calc(14px + env(safe-area-inset-bottom,0px)); border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;}
   .live{font-size:15px; color:var(--ink-soft);}
   .live b{color:var(--amber); font-weight:700; font-size:22px; font-variant-numeric:tabular-nums;}
   .stats-btn{font-family:var(--font); font-weight:600; font-size:13px; letter-spacing:.12em; text-transform:uppercase; padding:14px 22px; border-radius:6px; cursor:pointer; border:none; background:var(--khaki); color:#1c1c1c; display:flex; align-items:center; gap:10px;}
+  .foot-btns{display:flex; gap:10px; flex-wrap:wrap;}
+  .list-btn{font-family:var(--font); font-weight:600; font-size:13px; letter-spacing:.12em; text-transform:uppercase; padding:13px 20px; border-radius:6px; cursor:pointer; border:1px solid var(--khaki); background:transparent; color:#fff;}
+  .list-btn[aria-pressed="true"]{background:var(--amber); border-color:var(--amber); color:#1c1c1c;}
+  .list-btn:focus-visible,.stats-btn:focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
+  .list-head{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .filters{display:flex; gap:8px; flex-wrap:wrap;}
+  .chip{font:inherit; font-size:14px; font-weight:600; padding:9px 14px; border-radius:999px; cursor:pointer; border:1px solid var(--line); background:var(--card); color:var(--ink-soft);}
+  .chip.on{border-color:var(--khaki); background:var(--khaki); color:#1c1c1c;}
+  .chip b{font-variant-numeric:tabular-nums;}
   .dot{width:10px; height:10px; border-radius:50%; background:#1c1c1c;}
   .dot.bad{background:var(--red);}
 
@@ -189,7 +198,10 @@
 
   <footer>
     <div class="live" id="live"></div>
-    <button class="stats-btn" id="statsBtn" type="button"><span class="dot" id="dot"></span>Statistici</button>
+    <div class="foot-btns">
+      <button class="list-btn" id="listBtn" type="button" aria-pressed="false">Lista completă</button>
+      <button class="stats-btn" id="statsBtn" type="button"><span class="dot" id="dot"></span>Statistici</button>
+    </div>
   </footer>
 </div>
 
@@ -233,7 +245,7 @@
   "use strict";
   var POLL_MS = 2000, MIN_CHARS = 3;
   var guests = [], byId = {}, checkins = {}, version = 0, loaded = false, lastOk = 0;
-  var query = "", pending = {}, confirmId = null;
+  var query = "", pending = {}, confirmId = null, showAll = false, filt = "all";
 
   function $(id){ return document.getElementById(id); }
   function norm(s){
@@ -325,19 +337,31 @@
   function render(){
     var out = $("out");
     var tokens = norm(query).split(" ").filter(Boolean);
-    if (tokens.join("").length < MIN_CHARS){
+    var res, h, full = tokens.join("").length < MIN_CHARS;
+    if (full && (!showAll || !loaded)){
       out.innerHTML = '<div class="hint">' + (loaded ? "Scrie cel puțin 3 litere din nume sau prenume." : "Se încarcă lista de invitați…") + "</div>";
       return;
     }
-    var res = guests.filter(function(g){
-      for (var i = 0; i < tokens.length; i++) if (g.key.indexOf(tokens[i]) < 0) return false;
-      return true;
-    });
-    if (!res.length){
-      out.innerHTML = '<div class="empty">Nu am găsit pe nimeni pentru „' + esc(query.trim()) + '”. Verifică ortografia sau caută după celălalt nume.</div>';
-      return;
+    if (full){
+      // lista completa, alfabetic, cu filtru Toti / Au venit / N-au venit
+      var nIn = guests.filter(function(g){ return checkins[g.id]; }).length;
+      res = guests.filter(function(g){ return filt === "all" || (filt === "in") === !!checkins[g.id]; });
+      var chip = function(k, label, n){ return '<button type="button" class="chip' + (filt === k ? " on" : "") + '" data-filt="' + k + '">' + label + ' <b>' + n + '</b></button>'; };
+      h = ['<div class="list-head"><div class="count">Lista completă</div><div class="filters">' +
+        chip("all", "Toți", guests.length) + chip("in", "Au venit", nIn) + chip("out", "N-au venit", guests.length - nIn) + '</div></div>'];
+      if (!res.length){ h.push('<div class="empty">' + (filt === "in" ? "Nu a venit nimeni încă." : "Au venit toți invitații.") + '</div>'); out.innerHTML = h.join(""); return; }
+      h.push('<div class="results">');
+    } else {
+      res = guests.filter(function(g){
+        for (var i = 0; i < tokens.length; i++) if (g.key.indexOf(tokens[i]) < 0) return false;
+        return true;
+      });
+      if (!res.length){
+        out.innerHTML = '<div class="empty">Nu am găsit pe nimeni pentru „' + esc(query.trim()) + '”. Verifică ortografia sau caută după celălalt nume.</div>';
+        return;
+      }
+      h = ['<div class="count">' + res.length + (res.length === 1 ? " rezultat" : " rezultate") + '</div><div class="results">'];
     }
-    var h = ['<div class="count">' + res.length + (res.length === 1 ? " rezultat" : " rezultate") + '</div><div class="results">'];
     res.forEach(function(g){
       var ci = checkins[g.id], act, step = "";
       if (ci && confirmId === g.id){
@@ -397,6 +421,7 @@
 
   $("out").addEventListener("click", function(e){
     var b = e.target.closest ? e.target.closest("button") : null; if (!b) return;
+    if (b.hasAttribute("data-filt")){ filt = b.getAttribute("data-filt"); confirmId = null; render(); return; }
     var row = b.closest(".person"); if (!row) return;
     var id = row.getAttribute("data-id"), a = b.getAttribute("data-act"), g = byId[id], c = checkins[id];
     if (a === "in") send(id, "/api/checkin", {id:id}, {ts:Date.now(), n:g.count}, "✓ " + g.name + (g.count > 1 ? " (" + pers(g.count) + ")" : "") + " a venit");
@@ -413,6 +438,15 @@
   q.addEventListener("input", function(){ query = q.value; confirmId = null; $("clear").hidden = !query; render(); });
   q.addEventListener("keydown", function(e){ if (e.key === "Enter") q.blur(); });
   $("clear").addEventListener("click", function(){ q.value = ""; query = ""; confirmId = null; $("clear").hidden = true; render(); q.focus(); });
+
+  $("listBtn").addEventListener("click", function(){
+    showAll = !showAll; filt = "all"; confirmId = null;
+    this.setAttribute("aria-pressed", showAll ? "true" : "false");
+    this.textContent = showAll ? "Închide lista" : "Lista completă";
+    if (showAll && query){ q.value = ""; query = ""; $("clear").hidden = true; }
+    q.blur(); render();
+    window.scrollTo(0, 0);
+  });
 
   function openStats(o){ $("statsBg").hidden = !o; if (o){ stats(); $("statsClose").focus(); } }
   $("statsBtn").addEventListener("click", function(){ openStats(true); });
