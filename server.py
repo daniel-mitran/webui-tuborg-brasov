@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Tuborg · Radisson Blu Brasov (23 octombrie 2026) - check-in invitati,
+Single Malt · Radisson Blu Brasov (23 octombrie 2026) - check-in invitati,
 sincronizat pe mai multe tablete. Fara PIN.
 
 - Lista de invitati e STATICA: guests.json, generat o singura data din Excel
@@ -116,7 +116,7 @@ STORE = None
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "TuborgCheckin/1.0"
+    server_version = "SingleMaltCheckin/1.0"
 
     def log_message(self, fmt, *args):
         line = args[0] if args and isinstance(args[0], str) else ""
@@ -202,7 +202,7 @@ def local_ips():
 
 def main():
     global STORE
-    ap = argparse.ArgumentParser(description="Tuborg Brasov - check-in invitati")
+    ap = argparse.ArgumentParser(description="Single Malt Brasov - check-in invitati")
     ap.add_argument("--port", type=int, default=int(os.environ.get("PORT", "8080")))
     a = ap.parse_args()
     STORE = Store()

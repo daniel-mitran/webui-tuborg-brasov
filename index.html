@@ -4,32 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#3dc00f">
-<title>Tuborg Check-in</title>
+<meta name="theme-color" content="#1c1c1c">
+<title>Single Malt Check-in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700;800;900&family=Inter:wght@400..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
 <style>
-  /* Paleta tuborg.ro (tuborg.com/ro-ro): verde Tuborg #3DC00F dominant, bleumarin #000B90
-     pentru text pe verde, verde deschis #4CD964 si fundal crem-verzui #F0F4ED. */
+  /* Paleta singlemalt.ro: carbune inchis, kaki-auriu #A69A80 (culoarea de brand),
+     chihlimbar #FEB406 ca accent de whisky, alb; font Poppins ca pe site. */
   :root{
-    --paper:#ffffff;
-    --bg:#f0f4ed;
-    --ink:#0b1240;
-    --ink-soft:#56607a;
-    --line:#d6e2cf;
-    --green:#3dc00f;          /* verde Tuborg - culoarea dominanta */
-    --green-light:#4cd964;
-    --green-deep:#258a00;     /* verde pentru text pe alb (contrast) */
-    --green-soft:#e2f5d8;
-    --green-hl:#c6efb0;
-    --navy:#000b90;
-    --ok:#3dc00f;
-    --ok-soft:#e2f5d8;
-    --red:#d0102e;
-    --font:"Inter","Helvetica Neue",Arial,sans-serif;
-    --display:"Darker Grotesque","Inter",Arial,sans-serif;
-    color-scheme:light;
+    --bg:#262626;
+    --card:#323232;
+    --card-in:#3a3528;
+    --head:#1c1c1c;
+    --ink:#ffffff;
+    --ink-soft:rgba(255,255,255,.65);
+    --line:#474747;
+    --khaki:#a69a80;
+    --khaki-soft:#4a4436;
+    --amber:#feb406;
+    --red:#e5484d;
+    --font:"Poppins","Helvetica Neue",Arial,sans-serif;
+    color-scheme:dark;
   }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
   html,body{height:100%;}
@@ -40,17 +36,19 @@
   body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--font); font-size:16px; -webkit-font-smoothing:antialiased;}
   [hidden]{display:none!important;}
 
-  .top{background:var(--green); color:var(--navy); border-bottom:6px solid var(--navy); padding-top:env(safe-area-inset-top,0px);}
+  .top{background:var(--head); color:#fff; border-bottom:4px solid var(--khaki); padding-top:env(safe-area-inset-top,0px);}
   .top-in{
     max-width:860px; margin:0 auto; display:flex; align-items:center; gap:22px;
     padding:22px max(20px, env(safe-area-inset-right,0px)) 22px max(20px, env(safe-area-inset-left,0px));
   }
   .top img{display:block; height:56px; width:auto;}
-  .wordmark{font-family:var(--display); font-size:44px; font-weight:900; letter-spacing:-.01em; line-height:.9; padding-right:20px; border-right:2px solid rgba(0,11,144,.3); color:var(--navy);}
+  .wordmark{display:flex; flex-direction:column; line-height:1; padding-right:22px; border-right:1px solid rgba(166,154,128,.5); color:#fff;}
+  .wordmark b{font-size:28px; font-weight:700; letter-spacing:.02em;}
+  .wordmark span{margin-top:6px; font-size:11px; font-weight:600; letter-spacing:.32em; text-transform:uppercase; color:var(--khaki);}
   .ev{flex:1; min-width:0;}
-  .ev .kick{font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--navy);}
-  .ev h1{margin:2px 0 0; font-family:var(--display); font-size:40px; line-height:1; font-weight:900; color:var(--navy); line-height:1.15; font-weight:800; letter-spacing:-.01em; overflow-wrap:anywhere;}
-  .ev .tag{margin-top:4px; font-size:14px; color:var(--navy); font-weight:600; opacity:.8;}
+  .ev .kick{font-size:13px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--khaki);}
+  .ev h1{margin:4px 0 0; font-size:28px; line-height:1.15; font-weight:700; overflow-wrap:anywhere;}
+  .ev .tag{margin-top:4px; font-size:14px; color:var(--ink-soft); font-weight:400;}
 
   .page{
     min-height:calc(100% - 120px); display:flex; flex-direction:column; gap:20px;
@@ -59,104 +57,104 @@
     padding-left:max(20px, env(safe-area-inset-left,0px));
     padding-right:max(20px, env(safe-area-inset-right,0px));
   }
-  .alert{background:var(--red); color:#fff; border-radius:10px; padding:12px 16px; font-weight:600; font-size:15px;}
+  .alert{background:var(--red); color:#fff; border-radius:8px; padding:12px 16px; font-weight:600; font-size:15px;}
 
   .search{position:relative;}
   .search input{
-    width:100%; font-family:var(--font); font-size:28px; font-weight:600; color:var(--ink);
-    padding:20px 76px 20px 22px; border-radius:12px; border:3px solid var(--green);
-    background:var(--paper); outline:none; -webkit-appearance:none; appearance:none;
+    width:100%; font-family:var(--font); font-size:26px; font-weight:500; color:#fff;
+    padding:20px 76px 20px 22px; border-radius:8px; border:2px solid var(--khaki);
+    background:var(--card); outline:none; -webkit-appearance:none; appearance:none;
   }
   .search input::-webkit-search-cancel-button,.search input::-webkit-search-decoration{-webkit-appearance:none; appearance:none; display:none;}
-  .search input::placeholder{color:#9aa6b8; font-weight:400;}
-  .search input:focus{box-shadow:0 0 0 5px rgba(76,217,100,.45);}
+  .search input::placeholder{color:rgba(255,255,255,.4); font-weight:400;}
+  .search input:focus{border-color:var(--amber); box-shadow:0 0 0 4px rgba(254,180,6,.25);}
   .clear{
     position:absolute; right:12px; top:50%; transform:translateY(-50%);
-    width:52px; height:52px; border-radius:10px; border:none; cursor:pointer;
-    background:var(--green); color:var(--navy); font-size:30px; font-weight:700; line-height:52px; padding:0;
+    width:52px; height:52px; border-radius:6px; border:none; cursor:pointer;
+    background:var(--khaki); color:#1c1c1c; font-size:30px; font-weight:600; line-height:52px; padding:0;
   }
   .clear:active{transform:translateY(-50%) scale(.94);}
 
   .hint{color:var(--ink-soft); font-size:16px; padding:6px 4px;}
-  .count{font-weight:800; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); padding:0 4px;}
+  .count{font-weight:600; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--khaki); padding:0 4px;}
 
   .results{display:flex; flex-direction:column; gap:10px; margin-top:10px;}
   .person{
     display:flex; align-items:center; gap:16px; padding:16px 14px 16px 20px;
-    border:1px solid var(--line); border-radius:12px; background:var(--paper);
-    box-shadow:0 1px 2px rgba(0,11,144,.06);
+    border:1px solid var(--line); border-radius:8px; background:var(--card);
   }
-  .person.in{background:var(--ok-soft); border-color:#a6dd8c; box-shadow:inset 8px 0 0 var(--green);}
+  .person.in{background:var(--card-in); border-color:#6b5d36; box-shadow:inset 6px 0 0 var(--amber);}
   .who{flex:1; min-width:0; display:flex; flex-direction:column; gap:7px;}
   .line1{display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
-  .name{font-size:24px; font-weight:700; line-height:1.2; overflow-wrap:anywhere;}
-  .name mark{background:var(--green-hl); color:var(--ink); border-radius:3px; padding:0 1px;}
-  .pax{flex:none; font-weight:800; font-size:15px; padding:5px 11px 4px; border-radius:999px; background:var(--green); color:var(--navy); white-space:nowrap;}
-  .pax.big{background:var(--navy); color:#fff; font-size:17px;}
-  .detail{font-size:16px; color:var(--ink-soft); line-height:1.35; overflow-wrap:anywhere;}
-  .dup{font-size:13px; color:var(--navy); font-weight:600;}
+  .name{font-size:23px; font-weight:600; line-height:1.25; overflow-wrap:anywhere;}
+  .name mark{background:var(--khaki); color:#1c1c1c; border-radius:3px; padding:0 2px;}
+  .pax{flex:none; font-weight:600; font-size:14px; padding:4px 11px; border-radius:999px; border:1px solid var(--khaki); color:var(--khaki); white-space:nowrap;}
+  .pax.big{background:var(--amber); border-color:var(--amber); color:#1c1c1c; font-size:16px;}
+  .detail{font-size:15px; color:var(--ink-soft); line-height:1.4; overflow-wrap:anywhere;}
+  .dup{font-size:13px; color:var(--amber); font-weight:500;}
 
   .stepper{display:flex; align-items:center; gap:10px; margin-top:2px; flex-wrap:wrap;}
-  .stepper .t{font-weight:700; font-size:15px; color:var(--green-deep);}
-  .stepper button{width:46px; height:46px; border-radius:10px; border:2px solid var(--green); background:var(--paper); color:var(--navy); font:inherit; font-size:26px; font-weight:700; line-height:1; cursor:pointer; padding:0;}
-  .stepper button:disabled{opacity:.35;}
-  .stepper b{font-size:24px; font-weight:800; min-width:28px; text-align:center; font-variant-numeric:tabular-nums;}
+  .stepper .t{font-weight:600; font-size:15px; color:var(--amber);}
+  .stepper button{width:46px; height:46px; border-radius:6px; border:1px solid var(--khaki); background:transparent; color:#fff; font:inherit; font-size:24px; font-weight:600; line-height:1; cursor:pointer; padding:0;}
+  .stepper button:disabled{opacity:.3;}
+  .stepper b{font-size:24px; font-weight:700; min-width:28px; text-align:center; font-variant-numeric:tabular-nums;}
   .stepper small{font-size:15px; color:var(--ink-soft);}
 
-  .check{flex:none; display:flex; align-items:center; gap:12px; cursor:pointer; border:none; background:transparent; padding:6px; border-radius:12px; font:inherit; color:inherit;}
-  .check:focus-visible{outline:3px solid var(--navy);}
-  .box{width:58px; height:58px; border-radius:10px; border:3px solid var(--green); background:var(--paper); display:flex; align-items:center; justify-content:center; color:var(--navy); font-size:34px; font-weight:800;}
-  .check .lbl{font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--green); text-align:left; line-height:1.3; min-width:76px; color:var(--navy);}
-  .person.in .box{background:var(--ok); border-color:var(--ok);}
-  .person.in .lbl{color:var(--green-deep);}
-  .lbl small{display:block; letter-spacing:0; text-transform:none; font-weight:500; font-size:13px; color:var(--ink-soft);}
+  .check{flex:none; display:flex; align-items:center; gap:12px; cursor:pointer; border:none; background:transparent; padding:6px; border-radius:8px; font:inherit; color:inherit;}
+  .check:focus-visible{outline:2px solid var(--amber);}
+  .box{width:58px; height:58px; border-radius:6px; border:2px solid var(--khaki); background:transparent; display:flex; align-items:center; justify-content:center; color:#1c1c1c; font-size:32px; font-weight:700;}
+  .check .lbl{font-weight:600; font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--khaki); text-align:left; line-height:1.35; min-width:76px;}
+  .person.in .box{background:var(--amber); border-color:var(--amber);}
+  .person.in .lbl{color:var(--amber);}
+  .lbl small{display:block; letter-spacing:0; text-transform:none; font-weight:400; font-size:13px; color:var(--ink-soft);}
   .check:active .box{transform:scale(.95);}
 
   .confirm{display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
   .confirm span{font-weight:600;}
-  .btn{font:inherit; font-weight:700; font-size:15px; border-radius:8px; padding:12px 16px; cursor:pointer; border:2px solid var(--green); background:var(--paper); color:var(--navy);}
+  .btn{font:inherit; font-weight:600; font-size:15px; border-radius:6px; padding:12px 16px; cursor:pointer; border:1px solid var(--khaki); background:transparent; color:#fff;}
   .btn.red{background:var(--red); border-color:var(--red); color:#fff;}
-  .btn:focus-visible{outline:3px solid var(--navy); outline-offset:2px;}
+  .btn:focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
   .empty{padding:28px 6px; color:var(--ink-soft); font-size:17px;}
 
   footer{margin-top:auto; padding-top:22px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;}
-  .live{font-size:15px; color:var(--ink-soft); font-weight:500;}
-  .live b{color:var(--green-deep); font-weight:800; font-size:22px; font-variant-numeric:tabular-nums;}
-  .stats-btn{font-family:var(--font); font-weight:800; font-size:14px; letter-spacing:.08em; text-transform:uppercase; padding:14px 22px; border-radius:8px; cursor:pointer; border:none; background:var(--green); color:var(--navy); display:flex; align-items:center; gap:10px;}
-  .dot{width:10px; height:10px; border-radius:50%; background:var(--navy);}
+  .live{font-size:15px; color:var(--ink-soft);}
+  .live b{color:var(--amber); font-weight:700; font-size:22px; font-variant-numeric:tabular-nums;}
+  .stats-btn{font-family:var(--font); font-weight:600; font-size:13px; letter-spacing:.12em; text-transform:uppercase; padding:14px 22px; border-radius:6px; cursor:pointer; border:none; background:var(--khaki); color:#1c1c1c; display:flex; align-items:center; gap:10px;}
+  .dot{width:10px; height:10px; border-radius:50%; background:#1c1c1c;}
   .dot.bad{background:var(--red);}
 
-  .sheet-bg{position:fixed; inset:0; z-index:20; background:rgba(0,11,60,.5); display:flex; align-items:flex-end; justify-content:center;}
+  .sheet-bg{position:fixed; inset:0; z-index:20; background:rgba(0,0,0,.6); display:flex; align-items:flex-end; justify-content:center;}
   .sheet{
-    width:100%; max-width:620px; background:var(--paper); border-radius:18px 18px 0 0;
+    width:100%; max-width:620px; background:var(--card); border-radius:12px 12px 0 0;
     padding-block:24px calc(24px + env(safe-area-inset-bottom,0px));
     padding-left:max(24px, env(safe-area-inset-left,0px)); padding-right:max(24px, env(safe-area-inset-right,0px));
-    display:flex; flex-direction:column; gap:18px; max-height:92%; overflow:auto; border-top:6px solid var(--green);
+    display:flex; flex-direction:column; gap:18px; max-height:92%; overflow:auto; border-top:4px solid var(--khaki);
   }
-  .sheet h2{margin:0; font-family:var(--display); font-size:30px; font-weight:900; color:var(--navy);}
+  .sheet h2{margin:0; font-size:22px; font-weight:700;}
   .sheet-head{display:flex; justify-content:space-between; align-items:center; gap:12px;}
   .stat{display:grid; grid-template-columns:1fr auto; gap:6px 12px; align-items:baseline;}
-  .stat .k{font-weight:800; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--green-deep);}
-  .stat .v{font-size:34px; font-weight:800; font-variant-numeric:tabular-nums;}
-  .stat .v small{font-size:18px; color:var(--ink-soft); font-weight:500;}
+  .stat .k{font-weight:600; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--khaki);}
+  .stat .v{font-size:32px; font-weight:700; font-variant-numeric:tabular-nums;}
+  .stat .v small{font-size:17px; color:var(--ink-soft); font-weight:400;}
   .bar{grid-column:1 / -1; height:8px; border-radius:4px; background:var(--line); overflow:hidden;}
-  .bar i{display:block; height:100%; width:0; border-radius:4px; background:var(--ok); transition:width .35s ease;}
-  .stat.inv .bar i{background:var(--navy);}
+  .bar i{display:block; height:100%; width:0; border-radius:4px; background:var(--amber); transition:width .35s ease;}
+  .stat.inv .bar i{background:var(--khaki);}
   .meta{font-size:14px; color:var(--ink-soft); line-height:1.5;}
   .admin{display:flex; gap:8px; flex-wrap:wrap; align-items:center; padding-top:14px; border-top:1px solid var(--line);}
-  .admin input{font:inherit; font-size:16px; padding:11px 12px; border-radius:8px; border:2px solid var(--line); width:130px;}
+  .admin input{font:inherit; font-size:16px; padding:11px 12px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:#fff; width:130px;}
 
   .toast{
     position:fixed; left:50%; z-index:30; top:calc(18px + env(safe-area-inset-top,0px));
     transform:translate(-50%,-16px); opacity:0; pointer-events:none; max-width:calc(100% - 40px);
-    background:var(--navy); color:#fff; padding:13px 20px; border-radius:10px; font-weight:700; text-align:center;
-    border-bottom:4px solid var(--green); transition:opacity .2s ease, transform .2s ease;
+    background:var(--amber); color:#1c1c1c; padding:13px 20px; border-radius:8px; font-weight:600; text-align:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.4); transition:opacity .2s ease, transform .2s ease;
   }
   .toast.show{opacity:1; transform:translate(-50%,0);}
 
   @media (max-width:600px){
-    .ev h1{font-size:30px;} .top img{height:40px;} .wordmark{font-size:32px; padding-right:14px;} .top-in{gap:14px;}
-    .search input{font-size:22px; padding:16px 66px 16px 16px;}
+    .ev h1{font-size:21px;} .top img{height:40px;} .top-in{gap:14px;}
+    .wordmark{padding-right:14px;} .wordmark b{font-size:20px;} .wordmark span{font-size:9px;}
+    .search input{font-size:21px; padding:16px 66px 16px 16px;}
     .clear{width:44px; height:44px; line-height:44px; font-size:26px;}
     .name{font-size:19px;}
     .box{width:50px; height:50px; font-size:28px;}
@@ -169,9 +167,9 @@
 <body>
 <header class="top">
   <div class="top-in">
-    <!-- logo oficial: puneti fisierul in static/logo.png; daca lipseste, apare textul Tuborg -->
-    <img src="static/logo.png" alt="Tuborg" onerror="this.hidden=true; document.getElementById('wm').hidden=false">
-    <div class="wordmark" id="wm" hidden>Tuborg</div>
+    <!-- logo oficial: puneti fisierul in static/logo.png; daca lipseste, apare textul Single Malt -->
+    <img src="static/logo.png" alt="Single Malt" onerror="this.hidden=true; document.getElementById('wm').hidden=false">
+    <div class="wordmark" id="wm" hidden><b>Single Malt</b><span>Romania</span></div>
     <div class="ev">
       <div class="kick" id="kick">Check-in invitați</div>
       <h1 id="evTitle">Brașov</h1>
@@ -257,7 +255,7 @@
   }
 
   function req(method, path, body){
-    if (window.TUBORG_MOCK) return window.TUBORG_MOCK(method, path, body);
+    if (window.CHECKIN_MOCK) return window.CHECKIN_MOCK(method, path, body);
     return new Promise(function(resolve, reject){
       var x = new XMLHttpRequest();
       x.open(method, path, true);
@@ -290,7 +288,7 @@
       $("evTitle").textContent = s.title || "Brașov";
       $("kick").textContent = s.subtitle || "Check-in invitați";
       $("evTag").textContent = "Check-in invitați";
-      document.title = "Tuborg Check-in · " + (s.title || "Brașov");
+      document.title = "Single Malt Check-in · " + (s.title || "Brașov");
       loaded = true;
     }
     if (s.guests || s.version !== version){

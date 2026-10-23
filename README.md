@@ -1,4 +1,4 @@
-# webui-tuborg-brasov — check-in invitați Tuborg · Radisson Blu Brașov (23 octombrie 2026)
+# Check-in invitați Single Malt · Radisson Blu Brașov (23 octombrie 2026)
 
 Pagină pentru tablete: scrii cel puțin 3 litere din numele invitatului și bifezi **A venit?**. Bifarea apare pe toate tabletele în ~2 secunde. Fără PIN.
 
@@ -21,13 +21,13 @@ Bifările se salvează separat, în `checkins.json` din `DATA_DIR` (discul persi
 
 ## Găzduire pe Render
 
-1. **New → Blueprint**, alegi repo-ul `webui-tuborg-brasov`. `render.yaml` creează serviciul web (plan Starter) cu un disc de 1 GB la `/var/data`.
+1. **New → Blueprint**, alegi acest repo. `render.yaml` creează serviciul web (plan Starter) cu un disc de 1 GB la `/var/data`.
 2. Fiecare push pe `main` face deploy automat.
-3. Tabletele deschid adresa serviciului (ex. `https://webui-tuborg-brasov.onrender.com`).
+3. Tabletele deschid adresa serviciului (ex. `https://webui-singlemalt-brasov.onrender.com`).
 
 ### Logo
 
-Logo-ul oficial se pune în `static/logo.png`. Dacă lipsește, capul paginii afișează textul „Tuborg”.
+Logo-ul oficial se pune în `static/logo.png`. Dacă lipsește, capul paginii afișează textul „Single Malt”.
 
 ## Rulare locală (rezervă)
 

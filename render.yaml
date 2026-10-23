@@ -1,8 +1,8 @@
-# Render Blueprint: Dashboard → New → Blueprint → alegi repo-ul webui-tuborg-brasov.
+# Render Blueprint: Dashboard → New → Blueprint → alegi acest repo.
 # Fiecare push pe main face deploy automat.
 services:
   - type: web
-    name: webui-tuborg-brasov
+    name: webui-singlemalt-brasov
     runtime: python
     plan: starter            # discul persistent nu e disponibil pe planul gratuit
     region: frankfurt
@@ -17,6 +17,6 @@ services:
       - key: PYTHON_VERSION
         value: "3.12.7"
     disk:
-      name: tuborg-data
+      name: singlemalt-data
       mountPath: /var/data
       sizeGB: 1
