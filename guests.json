@@ -1,0 +1,671 @@
+{
+ "title": "Radisson Blu Brașov",
+ "subtitle": "23 octombrie 2026",
+ "guests": [
+  {
+   "id": "98efa68896",
+   "row": 3,
+   "name": "Raluca Szakacs",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "25800be3a0",
+   "row": 4,
+   "name": "Istvan Andras",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "937a68e3b8",
+   "row": 5,
+   "name": "Simon-Bogyo Szabolcs",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "4657419003",
+   "row": 6,
+   "name": "Antonoaie Victor",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "e80d354740",
+   "row": 7,
+   "name": "Lupea Tudor",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "a0667bd71f",
+   "row": 8,
+   "name": "Stavila Alexandru",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "a2fa5e88d5",
+   "row": 9,
+   "name": "Jalea Nicolae",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "5a0f3b18fb",
+   "row": 10,
+   "name": "Dragos Grigoras",
+   "detail": "",
+   "count": 12
+  },
+  {
+   "id": "dd43d675d3",
+   "row": 11,
+   "name": "OLOSZ EDITH",
+   "detail": "SK-HG DIESTE - BISERICA NEAGRA",
+   "count": 1
+  },
+  {
+   "id": "a8a7eef03f",
+   "row": 12,
+   "name": "IONESCU CRISTIAN",
+   "detail": "MATCA",
+   "count": 1
+  },
+  {
+   "id": "413cd353fd",
+   "row": 13,
+   "name": "GIGI BANCILA",
+   "detail": "COLIBAHAIDUCILOR - PATRON - POIANA BV",
+   "count": 2
+  },
+  {
+   "id": "51dee20568",
+   "row": 14,
+   "name": "CRISTIAN BURLACU",
+   "detail": "COLIBA HAIDUCILOR - MANAGER-POIANA BV",
+   "count": 2
+  },
+  {
+   "id": "da7a0eedc5",
+   "row": 15,
+   "name": "ADRIAN OPRICA",
+   "detail": "CUPTOR - P-TA SFATULUI",
+   "count": 2
+  },
+  {
+   "id": "38f0b64e98",
+   "row": 16,
+   "name": "RAZVAN SARBU",
+   "detail": "OLD JACK - P-TA SFATULUI",
+   "count": 2
+  },
+  {
+   "id": "e40392bdaa",
+   "row": 17,
+   "name": "LUCIAN LUCACI",
+   "detail": "STREET CAFÉ - CENTRU VECHI",
+   "count": 2
+  },
+  {
+   "id": "e4f1da98a1",
+   "row": 18,
+   "name": "COSTI BADEA",
+   "detail": "COBO",
+   "count": 2
+  },
+  {
+   "id": "a102af8041",
+   "row": 19,
+   "name": "MANU RESTEA",
+   "detail": "OLD TEAM - MANAGER",
+   "count": 1
+  },
+  {
+   "id": "049ee44162",
+   "row": 20,
+   "name": "EDUARD TOTH",
+   "detail": "JUNO WINE",
+   "count": 2
+  },
+  {
+   "id": "138602416d",
+   "row": 21,
+   "name": "SORIN NICOLESCU",
+   "detail": "HALEP - POIANA BV",
+   "count": 2
+  },
+  {
+   "id": "636b20c115",
+   "row": 22,
+   "name": "CRISTIAN CALINSCHI",
+   "detail": "ASM HORECA-PROSOFT BV",
+   "count": 1
+  },
+  {
+   "id": "5cc6e0cb6b",
+   "row": 23,
+   "name": "CATALIN PIRIPICEANU",
+   "detail": "HORECA - PROSOFT BV",
+   "count": 1
+  },
+  {
+   "id": "c37546ecf8",
+   "row": 24,
+   "name": "FLORIN NASTASE",
+   "detail": "ORGANIZATOR EVENIMENTE",
+   "count": 2
+  },
+  {
+   "id": "20ff66c8d9",
+   "row": 25,
+   "name": "LIVIU MIRT",
+   "detail": "TELEFERIC - POIANA BV",
+   "count": 2
+  },
+  {
+   "id": "5acb7134eb",
+   "row": 26,
+   "name": "ANDRAS JANKO",
+   "detail": "HOTEL RESORT BALVANYOS",
+   "count": 1
+  },
+  {
+   "id": "73f9b66ab2",
+   "row": 27,
+   "name": "ALEXANDRU OLTEANU",
+   "detail": "HORECA - AMIGO&INTERCOST",
+   "count": 1
+  },
+  {
+   "id": "32acd72776",
+   "row": 28,
+   "name": "ALIN CRUCIAN",
+   "detail": "ASM HORECA - AMIGO&INTERCOST",
+   "count": 1
+  },
+  {
+   "id": "797f3f2284",
+   "row": 29,
+   "name": "VLAD TEODORESCU",
+   "detail": "MUSIK PUB-CENTRU VECHI",
+   "count": 2
+  },
+  {
+   "id": "c13aacefee",
+   "row": 30,
+   "name": "DRAGOS GRIGORAS",
+   "detail": "RSM ALEXANDRION",
+   "count": 1
+  },
+  {
+   "id": "44166a733d",
+   "row": 31,
+   "name": "FLORIN ROSCA",
+   "detail": "ALEXANDRION HORECA BRASOV",
+   "count": 1
+  },
+  {
+   "id": "d3bb7a1d26",
+   "row": 32,
+   "name": "CATALIN PROCOP",
+   "detail": "STAFF - PROSOFT BV",
+   "count": 4
+  },
+  {
+   "id": "a827f03b69",
+   "row": 33,
+   "name": "Neamtu Razvan",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "5a2e237563",
+   "row": 34,
+   "name": "Alin Ditu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "689e9b184e",
+   "row": 35,
+   "name": "Alex Tanase",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "dafc978c44",
+   "row": 36,
+   "name": "Vali Bodea",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "1dd2db7b40",
+   "row": 37,
+   "name": "Adi Comaniciu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "5c05a38f2d",
+   "row": 38,
+   "name": "Iulian Diamandi",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "b4160831ce",
+   "row": 39,
+   "name": "Ovidiu Hohoiu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "a00fc96502",
+   "row": 40,
+   "name": "Nicu Cozonici",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "f70ccff421",
+   "row": 41,
+   "name": "Luci Pop",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "06976d8614",
+   "row": 42,
+   "name": "Eugen Morariu",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "983faf40f7",
+   "row": 43,
+   "name": "Dan Taropa",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "f06a0d727d",
+   "row": 44,
+   "name": "Ionut Gutis",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "b8af612bfe",
+   "row": 45,
+   "name": "Radu Craciun",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "ecaff20b6e",
+   "row": 46,
+   "name": "Edi si Alina",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "81c47fa0dd",
+   "row": 47,
+   "name": "Damian Pal",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "7ed529ea1f",
+   "row": 48,
+   "name": "Bogdan Taus",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "a846e4a5b8",
+   "row": 49,
+   "name": "Marian Gilea",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "16e40f3a1c",
+   "row": 50,
+   "name": "Emil Barbat",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "ddb42db09a",
+   "row": 51,
+   "name": "Denise",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "82d24e9263",
+   "row": 52,
+   "name": "Mihai Fetcu",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "c343fbd800",
+   "row": 53,
+   "name": "Dorian Lungu",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "f26cb4ce0c",
+   "row": 54,
+   "name": "Badita Radu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "74537c72b0",
+   "row": 55,
+   "name": "Denisa Manolache",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "41a861e96a",
+   "row": 56,
+   "name": "Marian Spirache",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "7ffb00bec9",
+   "row": 57,
+   "name": "Mihaela Spirache",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "210939bfc5",
+   "row": 58,
+   "name": "Marguta Capitanu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "213bd2f85a",
+   "row": 59,
+   "name": "Corina Lovering",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "c528d216ea",
+   "row": 60,
+   "name": "Dana Păunescu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "403d84e129",
+   "row": 61,
+   "name": "Elena Mihăescu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "b5ce52679f",
+   "row": 62,
+   "name": "Marius Hutanu",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "aaecbdee75",
+   "row": 63,
+   "name": "Bogdan Teodorescu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "6f9859b345",
+   "row": 64,
+   "name": "Andreas Nikiforidis",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "4720780b44",
+   "row": 65,
+   "name": "Adela Gheorghe",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "2a5ec70eb1",
+   "row": 66,
+   "name": "Daniel Gheorghe",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "45dc2f3ff6",
+   "row": 67,
+   "name": "Ciprian Dogaru",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "93a071fbe1",
+   "row": 68,
+   "name": "Valentin Ungureanu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "07082c5504",
+   "row": 69,
+   "name": "Ionuț Vârtic",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "816f403489",
+   "row": 70,
+   "name": "Maria Cornea",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "88a81ddb6c",
+   "row": 71,
+   "name": "Florica Voinescu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "830ad401fb",
+   "row": 72,
+   "name": "Ana Ionescu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "f3a06fc093",
+   "row": 73,
+   "name": "Dorin Ionescu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "078fa297a7",
+   "row": 74,
+   "name": "Cătălin Băjan",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "c18ad18081",
+   "row": 75,
+   "name": "Wanda Krček",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "7a49eca850",
+   "row": 76,
+   "name": "Maria Chimoaică",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "2f6cc75e73",
+   "row": 77,
+   "name": "Alexandru Mitache",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "908a434582",
+   "row": 78,
+   "name": "Tóth Ferenc",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "b50687d676",
+   "row": 79,
+   "name": "Anna Dogaru",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "05855c8f24",
+   "row": 80,
+   "name": "Mona Voinescu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "17ac995b39",
+   "row": 81,
+   "name": "catalib melnic",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "2389137e8e",
+   "row": 82,
+   "name": "ionela melnic",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "e08c1ec5c6",
+   "row": 83,
+   "name": "Alina si Petru Spinean",
+   "detail": "",
+   "count": 2
+  },
+  {
+   "id": "cf1454abdd",
+   "row": 84,
+   "name": "Raul Coman",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "09d8caa493",
+   "row": 85,
+   "name": "Theodor Moisachi",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "cc8f4082a2",
+   "row": 86,
+   "name": "Andreea Bodea",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "afec1f3eb1",
+   "row": 87,
+   "name": "Radu Craciun",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "b0539fc243",
+   "row": 88,
+   "name": "Mara Oprisiu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "20f3188a92",
+   "row": 89,
+   "name": "Vlad Pașca",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "b2485dd309",
+   "row": 90,
+   "name": "Alina Floroi",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "7303c5c5cc",
+   "row": 91,
+   "name": "Ioana Covali",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "f5568ab227",
+   "row": 92,
+   "name": "Klaus Cojocaru",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "4c65e24263",
+   "row": 93,
+   "name": "Oana Mondoc",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "2027dc62d6",
+   "row": 94,
+   "name": "Mihai Fetcu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "3bb3305f2b",
+   "row": 95,
+   "name": "Vlad Marinescu",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "e57b423e20",
+   "row": 96,
+   "name": "Paul Ilie",
+   "detail": "",
+   "count": 1
+  },
+  {
+   "id": "dd36658102",
+   "row": 97,
+   "name": "Răzvan Badea",
+   "detail": "",
+   "count": 1
+  }
+ ]
+}

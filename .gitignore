@@ -1,0 +1,4 @@
+checkins.json
+*.tmp
+__pycache__/
+*.xlsx
